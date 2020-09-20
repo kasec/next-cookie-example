@@ -14,9 +14,15 @@ function HomePage() {
           // router.push('/');
       });
     }
+        let req = new Request(REMOTE_LOGIN_URL, {
+          mode: 'cors', //just a safe-guard indicating our intentions of what to allow
+          credentials: 'include', //when will the cookies and authorization header be sent
+        });
     const apiRestLogin = function() {
-      fetch(REMOTE_LOGIN_URL)
+      fetch(req)
         .then(resp => {
+          console.log('resp', resp);
+          
           return resp.json()
         }).then(resp => {
             console.log(resp)

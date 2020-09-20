@@ -8,7 +8,7 @@ export default (req, res) => {
                 return response.json()
             })
             .then(result => {
-                res.setHeader('Set-Cookie', cookie.serialize('rest-auth-cookie', bit, {
+                res.setHeader('Set-Cookie', cookie.serialize('local-auth-cookie', bit, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== 'development',
                     sameSite: 'strict',
